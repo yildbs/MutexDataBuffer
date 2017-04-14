@@ -4,12 +4,11 @@
 #include <mutex>
 #include <condition_variable>
 
-
 class IData{
 protected:
 public:
-    IData();
-    virtual ~IData();
+	IData();
+	virtual ~IData();
 	virtual void clear();
 };
 
@@ -26,12 +25,12 @@ protected:
 	int maxSize;
 	int dropped;
 
-    bool push(void* data);
-    bool pop(void*& data);
+	bool push(void* data);
+	bool pop(void*& data);
 
 public:
-    DataBuffer();
-    virtual ~DataBuffer();
+	DataBuffer();
+	virtual ~DataBuffer();
 	void setMaxSize(int size);
 	void clear();
 

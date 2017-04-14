@@ -4,8 +4,9 @@ IData::IData(){}
 IData::~IData(){}
 void IData::clear(){}
 
-DataBuffer::DataBuffer():
-	dropped(0), maxSize(30)
+DataBuffer::DataBuffer() 
+	: dropped(0)
+	, maxSize(30)
 { }
 
 DataBuffer::~DataBuffer()
@@ -22,7 +23,7 @@ void DataBuffer::setMaxSize(int size)
 void DataBuffer::clear()
 {
 	while(this->buffer.size()>0){
-        IData* data = (IData*)buffer.front();
+		IData* data = (IData*)buffer.front();
 		data->clear();
 		delete data;
 		buffer.pop();
@@ -34,7 +35,7 @@ bool DataBuffer::push(void* newData)
 	bool ret = true;
 	std::lock_guard<std::mutex> guard(this->mtxQueueIOLock);
 	if( maxSize < buffer.size() ){
-        IData* data = (IData*)buffer.front();
+		IData* data = (IData*)buffer.front();
 		data->clear();
 		delete data;
 		buffer.pop();
