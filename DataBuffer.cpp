@@ -11,8 +11,7 @@ DataBuffer::DataBuffer()
 
 DataBuffer::~DataBuffer()
 { 
-	//TODO
-	//check what variable is needed to delete
+	clear();
 }
 
 void DataBuffer::setMaxSize(int size)
